@@ -1,0 +1,95 @@
+# Shared git config — included from ~/.gitconfig via [include] path = ...
+# Keep identity ([user] name/email) in ~/.gitconfig itself.
+
+[alias]
+	# ── Basics ────────────────────────────────────────────
+	st = status -sb
+	co = checkout
+	sw = switch
+	br = branch
+	ci = commit
+	cm = commit -m
+	ca = commit --amend
+	can = commit --amend --no-edit
+	a = add
+	aa = add --all
+	ap = add --patch
+
+	# ── Branches ──────────────────────────────────────────
+	nb = switch -c
+	bra = branch -a
+	brd = branch -d
+	recent = branch --sort=-committerdate --format='%(color:yellow)%(refname:short)%(color:reset)  %(color:green)%(committerdate:relative)%(color:reset)  %(contents:subject)'
+	# delete local branches already merged into the current branch
+	cleanup = "!git branch --merged | grep -vE '^\\*|^ *(main|master|develop)$' | xargs git branch -d"
+
+	# ── Logs ──────────────────────────────────────────────
+	lg = log --graph --abbrev-commit --decorate --format='%C(yellow)%h%C(reset) %C(blue)%ad%C(reset) %C(green)%an%C(reset)%C(auto)%d%C(reset) %s' --date=short
+	lga = !git lg --all
+	last = log -1 HEAD --stat
+	today = "!git log --since=midnight --author=\"$(git config user.email)\" --oneline"
+
+	# ── Diffs ─────────────────────────────────────────────
+	d = diff
+	ds = diff --staged
+	dw = diff --word-diff
+
+	# ── Sync ──────────────────────────────────────────────
+	f = fetch --all --prune
+	pl = pull
+	ps = push
+	pf = push --force-with-lease
+	pu = push -u origin HEAD
+
+	# ── Undo / stash ──────────────────────────────────────
+	unstage = restore --staged
+	discard = restore
+	undo = reset --soft HEAD~1
+	sl = stash list
+	sp = stash pop
+	ss = stash push -m
+
+	# ── Misc ──────────────────────────────────────────────
+	aliases = !git config --get-regexp '^alias\\.' | sed 's/^alias\\.//' | sort
+	root = rev-parse --show-toplevel
+	wip = !git add --all && git commit -m 'WIP' --no-verify
+
+[init]
+	defaultBranch = main
+
+[core]
+	editor = vim
+	excludesfile = ~/.config/git/ignore
+
+[color]
+	ui = auto
+
+[pull]
+	rebase = true
+
+[push]
+	autoSetupRemote = true
+	default = current
+
+[fetch]
+	prune = true
+
+[rebase]
+	autoStash = true
+	autoSquash = true
+
+[merge]
+	conflictstyle = zdiff3
+
+[diff]
+	algorithm = histogram
+	colorMoved = default
+
+[rerere]
+	enabled = true
+
+[branch]
+	sort = -committerdate
+
+[help]
+	autocorrect = prompt
