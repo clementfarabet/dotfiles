@@ -2,3 +2,4 @@
 catppuccin-mocha.itermcolors
 *.backup.*
 .DS_Store
+vim/.netrwhist

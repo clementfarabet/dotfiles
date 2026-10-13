@@ -12,8 +12,12 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 # 2. Tools + font
 echo "==> Installing packages"
 brew install starship zsh-autosuggestions zsh-syntax-highlighting zsh-completions \
-             fzf zoxide eza bat tmux
+             fzf zoxide eza bat tmux ripgrep
 brew install --cask font-jetbrains-mono-nerd-font
+
+# Vim plugins (pathogen bundles are git submodules)
+echo "==> Fetching vim plugins"
+git -C "$DIR" submodule update --init --recursive --depth 1
 
 # 3. bat theme
 BAT_THEMES="$(bat --config-dir)/themes"
@@ -42,6 +46,8 @@ link "$DIR/zshrc" "$HOME/.zshrc"
 link "$DIR/starship.toml" "$HOME/.config/starship.toml"
 link "$DIR/gitignore_global" "$HOME/.config/git/ignore"
 link "$DIR/tmux.conf" "$HOME/.config/tmux/tmux.conf"
+link "$DIR/vimrc" "$HOME/.vimrc"
+link "$DIR/vim" "$HOME/.vim"
 
 # Include shared gitconfig without touching existing settings in ~/.gitconfig
 if ! git config --global --get-all include.path 2>/dev/null | grep -qxF "$DIR/gitconfig"; then
