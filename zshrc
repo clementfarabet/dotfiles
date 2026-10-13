@@ -84,3 +84,6 @@ fi
 
 # Machine-specific overrides
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
+
+# Gemini API key, loaded from macOS Keychain (service: GEMINI_API_KEY)
+export GEMINI_API_KEY="$(security find-generic-password -a "$USER" -s GEMINI_API_KEY -w 2>/dev/null)"
