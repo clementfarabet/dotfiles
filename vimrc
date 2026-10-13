@@ -88,7 +88,7 @@ nnoremap <leader>bn :bnext<CR>
 nnoremap <leader>bp :bprevious<CR>
 nnoremap <leader>bd :bdelete<CR>
 
-" Splits: C-h/j/k/l handled by vim-tmux-navigator (works across tmux panes)
+" Splits: C-h/j/k/l move between vim splits (vim-tmux-navigator; tmux keeps default bindings)
 
 " ── Plugins ──────────────────────────────────────────────────────────────────
 " fzf.vim

@@ -27,7 +27,7 @@ It's safe to re-run. Then in iTerm2 → Settings → Profiles: pick the `catppuc
 | `starship.toml` | Two-line Catppuccin prompt |
 | `gitconfig` | Git aliases (`git aliases` lists them) + sane defaults |
 | `gitignore_global` | macOS / editor junk |
-| `tmux.conf` | tmux with `C-o` prefix, `\|`/`-` splits, `hjkl` panes, Catppuccin status bar |
+| `tmux.conf` | tmux with `C-o` prefix (otherwise default bindings), mouse, Catppuccin status bar |
 | `vimrc`, `vim/bundle/` | Vim config + pathogen plugins (submodules) |
 | `install.sh` | Bootstrap script |
 
@@ -38,7 +38,7 @@ Machine-specific overrides go in `~/.zshrc.local` / `~/.vimrc.local` (not tracke
 Loaded by [pathogen](https://github.com/tpope/vim-pathogen) from `vim/bundle/`:
 sensible, fugitive, surround, commentary, repeat, sleuth, unimpaired, catppuccin, lightline, nerdtree, gitgutter, fzf.vim, polyglot, auto-pairs, tmux-navigator, ale, undotree.
 
-Leader is `Space`. Highlights: `<leader>f` files, `<leader>/` ripgrep, `<leader>b` buffers, `<leader>n` file tree, `<leader>gs` git status, `<leader>u` undo tree, `gcc` comment, `C-h/j/k/l` move across vim splits **and** tmux panes.
+Leader is `Space`. Highlights: `<leader>f` files, `<leader>/` ripgrep, `<leader>b` buffers, `<leader>n` file tree, `<leader>gs` git status, `<leader>u` undo tree, `gcc` comment, `C-h/j/k/l` move between vim splits.
 
 ```sh
 # add a plugin
