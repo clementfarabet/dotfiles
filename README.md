@@ -26,6 +26,7 @@ It's safe to re-run. Then in iTerm2 → Settings → Profiles: pick the `catppuc
 | `starship.toml` | Two-line Catppuccin prompt |
 | `gitconfig` | Git aliases (`git aliases` lists them) + sane defaults |
 | `gitignore_global` | macOS / editor junk |
+| `tmux.conf` | tmux with `C-o` prefix, `\|`/`-` splits, `hjkl` panes, Catppuccin status bar |
 | `install.sh` | Bootstrap script |
 
 Machine-specific shell settings go in `~/.zshrc.local` (not tracked).
